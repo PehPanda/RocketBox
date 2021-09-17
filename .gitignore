@@ -420,3 +420,4 @@ bin/*
 obj/*
 .vs/
 .vs/MetodosAulaRevisaoCalc/v16/.suo
+*.exe
