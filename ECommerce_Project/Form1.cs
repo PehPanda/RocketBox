@@ -10,54 +10,45 @@ namespace ECommerce_Project
         public FrmCompra()
         {
             //Chama o SplashScreen
-            Thread t = new Thread(new ThreadStart(StartForm));
-            t.Start();
-            Thread.Sleep(3500);
+            //Thread t = new Thread(new ThreadStart(StartForm));
+            //t.Start();
+            //Thread.Sleep(3500);
             InitializeComponent();
-            t.Abort();
-            CenterToScreen();
+            //t.Abort();
+            //CenterToScreen();
         }
         //Prepara o SplashScreen
-        public void StartForm()
-        {
-            Application.Run(new FrmSplashScreen());
-        }
+        //public void StartForm()
+        //{
+            //Application.Run(new FrmSplashScreen());
+        //}
 
         //Vetores:
         CheckBox[] CBs;
         TextBox[] TXTs;
         NumericUpDown[] NUMs;
-
+        
         private void FrmCompra_Load(object sender, EventArgs e)
         {
             //Prepara os valores dos gabinetes ao carregar o form
 
-            Decimal Valor1 = Convert.ToDecimal("1890");
-            Decimal Valor2 = Convert.ToDecimal("1299");
-            Decimal Valor3 = Convert.ToDecimal("963,99");
-            Decimal Valor4 = Convert.ToDecimal("2099,99");
-            Decimal Valor5 = Convert.ToDecimal("399,99");
-            Decimal Valor6 = Convert.ToDecimal("2599,90");
-            Decimal Valor7 = Convert.ToDecimal("569,90");
-            Decimal Valor8 = Convert.ToDecimal("650");
+            // Gabinetes -> index 1 a 8
+            Double[] valoresGabinetes = { 1890, 1299, 963.99, 2099.99, 399.99, 2599.90, 569.90, 650 };
 
-            TxtGabinete1.Text = Valor1.ToString("C");
-            TxtGabinete2.Text = Valor2.ToString("C");
-            TxtGabinete3.Text = Valor3.ToString("C");
-            TxtGabinete4.Text = Valor4.ToString("C");
-            TxtGabinete5.Text = Valor5.ToString("C");
-            TxtGabinete6.Text = Valor6.ToString("C");
-            TxtGabinete7.Text = Valor7.ToString("C");
-            TxtGabinete8.Text = Valor8.ToString("C");
+            //for()
+            //{
+            //    ((Label)this.Controls.Find($"{TxtValor_Geral}", true)[0]).Value = 0;
+            //    ((Label)this.Controls.Find($"{TxtV_Geral}", true)[0]).Value = 0;
+            //}
 
-            TxtGabValor1.Text = "1890,00";
-            TxtGabValor2.Text = "1299,00";
-            TxtGabValor3.Text = "963,99";
-            TxtGabValor4.Text = "2099,99";
-            TxtGabValor5.Text = "399,99";
-            TxtGabValor6.Text = "2599,90";
-            TxtGabValor7.Text = "569,90";
-            TxtGabValor8.Text = "650,00";
+            TxtGabinete1.Text = valoresGabinetes[0].ToString("C");
+            TxtGabinete2.Text = valoresGabinetes[1].ToString("C");
+            TxtGabinete3.Text = valoresGabinetes[2].ToString("C");
+            TxtGabinete4.Text = valoresGabinetes[3].ToString("C");
+            TxtGabinete5.Text = valoresGabinetes[4].ToString("C");
+            TxtGabinete6.Text = valoresGabinetes[5].ToString("C");
+            TxtGabinete7.Text = valoresGabinetes[6].ToString("C");
+            TxtGabinete8.Text = valoresGabinetes[7].ToString("C");
 
             //Prepara os valores dos processadores ao carregar o form
 
@@ -370,26 +361,16 @@ namespace ECommerce_Project
         //Botão de limpar o carrinho
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
-            CBs = new CheckBox[64] {
-
-                CbGabinete1, CbGabinete2, CbGabinete3, CbGabinete4, CbGabinete5, CbGabinete6, CbGabinete7, CbGabinete8,
-                CbProcessador1, CbProcessador2, CbProcessador3, CbProcessador4, CbProcessador5, CbProcessador6, CbProcessador7, CbProcessador8,
-                CbPlacaMae1, CbPlacaMae2, CbPlacaMae3, CbPlacaMae4, CbPlacaMae5, CbPlacaMae6, CbPlacaMae7, CbPlacaMae8,
-                CbPlacaVid1, CbPlacaVid2, CbPlacaVid3, CbPlacaVid4, CbPlacaVid5, CbPlacaVid6, CbPlacaVid7, CbPlacaVid8,
-                CbServicos1, CbServicos2, CbServicos3, CbServicos4, CbWindows1, CbWindows2, CbWindows3, CbWindows4,
-                CbCooler1, CbCooler2, CbCooler3, CbCooler4, CbCooler5, CbCooler6, CbCooler7, CbCooler8,
-                CbMemoria1, CbMemoria2, CbMemoria3, CbMemoria4, CbMemoria5, CbMemoria6, CbMemoria7, CbMemoria8,
-                CbFonte1, CbFonte2, CbFonte3, CbFonte4, CbFonte5, CbFonte6, CbFonte7, CbFonte8
-
-            };
-
             LtbTotal.Items.Clear();
             TxtTotalIn.Text = "R$ 0,00".ToString();
             TxtTotalOut.Text = "R$ 0,00".ToString();
 
-            for (int i = 0; i < 64; i++)
+            foreach (Control cBox in this.Controls)
             {
-                CBs[i].Checked = false;
+                if (cBox is CheckBox)
+                {
+                    ((CheckBox)cBox).Checked = false;
+                }
             }
         }
         // Eventos gerais para a manipulação de valores e quantidades de produtos

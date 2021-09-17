@@ -421,3 +421,5 @@ obj/*
 .vs/
 .vs/MetodosAulaRevisaoCalc/v16/.suo
 *.exe
+*.exe
+ECommerce_Project/bin/Debug/ECommerce_Project.exe
