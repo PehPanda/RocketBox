@@ -545,7 +545,6 @@ namespace ECommerce_Project
             this.TbcGeral.SelectedIndex = 0;
             this.TbcGeral.Size = new System.Drawing.Size(850, 466);
             this.TbcGeral.TabIndex = 0;
-            this.TbcGeral.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.TbcGeral_Selecting);
             // 
             // TbpGabinete
             // 
@@ -5069,7 +5068,7 @@ namespace ECommerce_Project
             this.TxtTotalOut.ReadOnly = true;
             this.TxtTotalOut.Size = new System.Drawing.Size(100, 23);
             this.TxtTotalOut.TabIndex = 4;
-            this.TxtTotalOut.Text = "R$ 0,00";
+            this.TxtTotalOut.Text = "$ 0,00";
             this.TxtTotalOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PcbLogo

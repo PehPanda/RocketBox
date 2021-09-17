@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace ECommerce_Project
 {
@@ -20,14 +21,8 @@ namespace ECommerce_Project
         //Prepara o SplashScreen
         //public void StartForm()
         //{
-            //Application.Run(new FrmSplashScreen());
+        //Application.Run(new FrmSplashScreen());
         //}
-
-        //Vetores:
-        CheckBox[] CBs;
-        TextBox[] TXTs;
-        NumericUpDown[] NUMs;
-        
         private void FrmCompra_Load(object sender, EventArgs e)
         {
             //Prepara os valores dos gabinetes ao carregar o form
@@ -254,71 +249,6 @@ namespace ECommerce_Project
             TxtFonteValor7.Text = "259,90";
             TxtFonteValor8.Text = "2352,82";
         }
-        private void TbcGeral_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            //Declara os vetores:
-            decimal resultado = 0;
-
-            CBs = new CheckBox[64] {
-
-                CbGabinete1, CbGabinete2, CbGabinete3, CbGabinete4, CbGabinete5, CbGabinete6, CbGabinete7, CbGabinete8,
-                CbProcessador1, CbProcessador2, CbProcessador3, CbProcessador4, CbProcessador5, CbProcessador6, CbProcessador7, CbProcessador8,
-                CbPlacaMae1, CbPlacaMae2, CbPlacaMae3, CbPlacaMae4, CbPlacaMae5, CbPlacaMae6, CbPlacaMae7, CbPlacaMae8,
-                CbPlacaVid1, CbPlacaVid2, CbPlacaVid3, CbPlacaVid4, CbPlacaVid5, CbPlacaVid6, CbPlacaVid7, CbPlacaVid8,
-                CbServicos1, CbServicos2, CbServicos3, CbServicos4, CbWindows1, CbWindows2, CbWindows3, CbWindows4,
-                CbCooler1, CbCooler2, CbCooler3, CbCooler4, CbCooler5, CbCooler6, CbCooler7, CbCooler8,
-                CbMemoria1, CbMemoria2, CbMemoria3, CbMemoria4, CbMemoria5, CbMemoria6, CbMemoria7, CbMemoria8,
-                CbFonte1, CbFonte2, CbFonte3, CbFonte4, CbFonte5, CbFonte6, CbFonte7, CbFonte8
-
-            };
-            TXTs = new TextBox[64] {
-
-                TxtGabValor1, TxtGabValor2, TxtGabValor3, TxtGabValor4, TxtGabValor5, TxtGabValor6, TxtGabValor7, TxtGabValor8,
-                TxtProcValor1, TxtProcValor2, TxtProcValor3, TxtProcValor4, TxtProcValor5, TxtProcValor6, TxtProcValor7, TxtProcValor8,
-                TxtPlacaMValor1,  TxtPlacaMValor2, TxtPlacaMValor3, TxtPlacaMValor4, TxtPlacaMValor5, TxtPlacaMValor6, TxtPlacaMValor7, TxtPlacaMValor8,
-                TxtPlacaVidValor1, TxtPlacaVidValor2, TxtPlacaVidValor3, TxtPlacaVidValor4, TxtPlacaVidValor5, TxtPlacaVidValor6, TxtPlacaVidValor7, TxtPlacaVidValor8,
-                TxtServicosValor1, TxtServicosValor2, TxtServicosValor3, TxtServicosValor4, TxtWindowsValor1, TxtWindowsValor2, TxtWindowsValor3, TxtWindowsValor4,
-                TxtCoolerValor1, TxtCoolerValor2, TxtCoolerValor3, TxtCoolerValor4, TxtCoolerValor5, TxtCoolerValor6, TxtCoolerValor7, TxtCoolerValor8,
-                TxtMemoriaValor1, TxtMemoriaValor2, TxtMemoriaValor3, TxtMemoriaValor4, TxtMemoriaValor5, TxtMemoriaValor6, TxtMemoriaValor7, TxtMemoriaValor8,
-                TxtFonteValor1, TxtFonteValor2, TxtFonteValor3, TxtFonteValor4, TxtFonteValor5, TxtFonteValor6, TxtFonteValor7, TxtFonteValor8
-
-            };
-            NUMs = new NumericUpDown[64] {
-
-                NudGabinete1, NudGabinete2, NudGabinete3, NudGabinete4, NudGabinete5, NudGabinete6, NudGabinete7, NudGabinete8,
-                NudProcessador1, NudProcessador2, NudProcessador3, NudProcessador4, NudProcessador5, NudProcessador6, NudProcessador7, NudProcessador8,
-                NudPlacaMae1, NudPlacaMae2, NudPlacaMae3, NudPlacaMae4, NudPlacaMae5, NudPlacaMae6, NudPlacaMae7, NudPlacaMae8,
-                NudPlacaVid1, NudPlacaVid2, NudPlacaVid3, NudPlacaVid4, NudPlacaVid5, NudPlacaVid6, NudPlacaVid7, NudPlacaVid8,
-                NudServicos1, NudServicos2, NudServicos3, NudServicos4, NudWindows1, NudWindows2, NudWindows3, NudWindows4,
-                NudCooler1, NudCooler2, NudCooler3, NudCooler4, NudCooler5, NudCooler6, NudCooler7, NudCooler8,
-                NudMemoria1, NudMemoria2, NudMemoria3, NudMemoria4, NudMemoria5, NudMemoria6, NudMemoria7, NudMemoria8,
-                NudFonte1, NudFonte2, NudFonte3, NudFonte4, NudFonte5, NudFonte6, NudFonte7, NudFonte8
-
-            };
-            if (TbcGeral.SelectedTab.Name == "TbpTotal")
-            {
-                LtbTotal.Items.Clear();
-                TxtTotalIn.Text = "R$ 0,00".ToString();
-
-                for (int i = 0; i < 64; i++)
-                {
-                    if (CBs[i].Checked == true)
-                    {
-
-                        Decimal operacao = Convert.ToDecimal(TXTs[i].Text) * NUMs[i].Value;
-                        Decimal Total = decimal.Parse(TXTs[i].Text);
-
-                        LtbTotal.Items.Add(Environment.NewLine + " - " + CBs[i].Text + " - Unidade: " + Total.ToString("C") +
-                            " - Quantidade: " + NUMs[i].Value + " - Total: "
-                            + operacao.ToString("C") + Environment.NewLine);
-
-                        resultado += (Convert.ToDecimal(TXTs[i].Text) * NUMs[i].Value);
-                    }
-                }
-                TxtTotalIn.Text = resultado.ToString("C");
-                TxtTotalOut.Text = resultado.ToString("C");
-            }
-        }
         //Botão de finalizar compra
         private void BtnComprar_Click(object sender, EventArgs e)
         {
@@ -328,7 +258,7 @@ namespace ECommerce_Project
                 MessageBox.Show("Pedimos desculpas, mas a plataforma está em manutenção neste momento." +
                     Environment.NewLine + Environment.NewLine + Environment.NewLine + "Volte mais tarde e veja as novidades que estamos reservando para você!",
                     "Plataforma em manutenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+            }
             else
             {
                 MessageBox.Show("Selecione um item antes para poder finalizar a compra!", "Carrinho vázio", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -338,8 +268,8 @@ namespace ECommerce_Project
         private void BtnLimpar_Click(object sender, EventArgs e)
         {
             LtbTotal.Items.Clear();
-            TxtTotalIn.Text = "R$ 0,00".ToString();
-            TxtTotalOut.Text = "R$ 0,00".ToString();
+            TxtTotalIn.Text = 0.ToString("C");
+            TxtTotalOut.Text = 0.ToString("C");
 
             foreach (Control cBox in this.Controls)
             {
@@ -349,36 +279,144 @@ namespace ECommerce_Project
                 }
             }
         }
-        // Eventos gerais para a manipulação de valores e quantidades de produtos
-        String NudVAL;
-        String NudVal_Replaced;
-        String CBVAL;
-        String CBVal_Replaced;
+        //
+        // // Eventos gerais para a manipulação de valores e quantidades de produtos
+        //
+
+        // Variáveis para os nomes dos CB, TXT e Nud(s) 
+        String NomeNud;
+        String NomeCb;
+        String NomeTxt;
+
+        // Valores Temporários
+        String UltimoEvento;
+        Decimal UltimoValor = 0;
+        bool IgnorarEvento;
+
+        // Elementos Relativos
+        NumericUpDown ValorNUD;
+        Decimal ValorTextbox;
+        CheckBox ValorCheckbox;
+
+        // Por fim, o resultado!
+        Decimal resultado = 0;
+
+        //
+        // Evento dos Checkboxes
+        //
         private void CBGeneral_Changed(object sender, EventArgs e)
         {
+            if (IgnorarEvento == true) { return; }
+            // Checkbox que acionou o evento e seus elementos relativos
             CheckBox CBReference = (CheckBox)sender;
-            NudVAL = CBReference.Name.ToString();
-            NudVal_Replaced = NudVAL.Replace("Cb", "Nud");
-            if (CBReference.Checked == true) {
-                ((NumericUpDown)this.Controls.Find($"{NudVal_Replaced}", true)[0]).Value = 1;
-            } else
+
+            // Nomes relativos
+            NomeNud = CBReference.Name.ToString().Replace("Cb", "Nud");
+            NomeTxt = CBReference.Name.ToString().Replace("Cb", "Txt");
+            // Objetos relativos
+            IgnorarEvento = true;
+            ValorTextbox = Decimal.Parse(((TextBox)this.Controls.Find($"{NomeTxt}", true)[0]).Text, NumberStyles.Currency);
+            ValorNUD = (NumericUpDown)this.Controls.Find($"{NomeNud}", true)[0];
+            IgnorarEvento = false;
+
+
+            // Define o valor do NUD baseado no valor checked da checkbox e atualiza o resultado
+            if (CBReference.Checked == true)
             {
-                ((NumericUpDown)this.Controls.Find($"{NudVal_Replaced}", true)[0]).Value = 0;
-            }
-        }
-        private void NudGeneral_Changed(object sender, EventArgs e)
-        {
-            NumericUpDown NUDReference = (NumericUpDown)sender;
-            CBVAL = NUDReference.Name.ToString();
-            CBVal_Replaced = CBVAL.Replace("Nud", "Cb");
-            if (NUDReference.Value == 0)
-            {
-                ((CheckBox)this.Controls.Find($"{CBVal_Replaced}", true)[0]).Checked = false;
+                IgnorarEvento = true;
+                ValorNUD.Value = 1;
+                resultado += ValorTextbox;
+                IgnorarEvento = false;
+                LtbTotal.Items.Add($"\n {CBReference.Text} - Unidade: {ValorTextbox} - Quantidade:  {ValorNUD.Value} - " + $"Total: { (ValorTextbox * ValorNUD.Value).ToString("C")} \n");
             }
             else
             {
-                ((CheckBox)this.Controls.Find($"{CBVal_Replaced}", true)[0]).Checked = true;
+                IgnorarEvento = true;
+                resultado -= ValorNUD.Value * ValorTextbox;
+                ValorNUD.Value = 0;
+                IgnorarEvento = false;
+                LtbTotal.Items.RemoveAt(LtbTotal.Items.Count - 1);
             }
+
+            // Adiciona o NUD do Checkbox ao ultimo evento
+            IgnorarEvento = true;
+            UltimoEvento = ((NumericUpDown)this.Controls.Find($"{NomeNud}", true)[0]).Name;
+            IgnorarEvento = false;
+
+            // Atribuição do total e o mostra na label
+            TxtTotalIn.Text = resultado.ToString("C");
+            TxtTotalOut.Text = resultado.ToString("C");
+            UltimoEvento = CBReference.Name;
+        }
+        //
+        // Evento dos Numeric Up Down(s)!
+        //
+        private void NudGeneral_Changed(object sender, EventArgs e)
+        {
+            if (IgnorarEvento) { return; }
+            // Numeric Up Down que deu trigger nesse evento
+            NumericUpDown NUDReference = (NumericUpDown)sender;
+
+            // Nomes Relativos
+            NomeCb = NUDReference.Name.Replace("Nud", "Cb");
+            NomeTxt = NUDReference.Name.Replace("Nud", "Txt");
+            // Objetos Relativos
+            ValorTextbox = Decimal.Parse(((TextBox)this.Controls.Find($"{NomeTxt}", true)[0]).Text, NumberStyles.Currency);
+            ValorCheckbox = (CheckBox)this.Controls.Find($"{NomeCb}", true)[0];
+
+            // Checkagem de valores
+            switch (NUDReference.Value)
+            {
+                case 0: {
+                        IgnorarEvento = true;
+                        ValorCheckbox.Checked = false;
+                        IgnorarEvento = false;
+                        resultado -= ValorTextbox;
+                        LtbTotal.Items.RemoveAt(LtbTotal.Items.Count - 1);
+                        break;
+                    };
+                case 1: {
+                        if (NUDReference.Value < UltimoValor)
+                        {
+                            resultado -= ValorTextbox;
+                        }
+                        IgnorarEvento = true;
+                        ValorCheckbox.Checked = true;
+                        resultado += ValorTextbox;
+                        IgnorarEvento = false;
+                        if (UltimoEvento == NUDReference.Name)
+                        {
+                            LtbTotal.Items.RemoveAt(LtbTotal.Items.Count - 1);
+                        }
+                        LtbTotal.Items.Add($"\n {ValorCheckbox.Text} - Unidade: {ValorTextbox} - Quantidade:  {NUDReference.Value} -  Total: { (ValorTextbox * NUDReference.Value).ToString("C")}\n");
+                        break;
+                    };
+                default:
+                    {
+                        // Pega o valor da textbox, converte para um valor double e adiciona na lista!
+                        if (NUDReference.Value < UltimoValor)
+                        {
+                            IgnorarEvento = true;
+                            resultado -= ValorTextbox;
+                            IgnorarEvento = false;
+                        }
+                        else
+                        {
+                            // Remover ultimo valor da lista caso seja ultimo evento (previne duplicação de valores constantemente)
+                            if (UltimoEvento == NUDReference.Name)
+                            {
+                                LtbTotal.Items.RemoveAt(LtbTotal.Items.Count - 1);
+                            }
+                            LtbTotal.Items.Add($"\n {ValorCheckbox.Text} - Unidade: {ValorTextbox} - Quantidade:  {NUDReference.Value} - Total: { (ValorTextbox * NUDReference.Value).ToString("C")} \n");
+                            resultado += ValorTextbox * NUDReference.Value;
+                        }
+                        break;
+                    } 
+            }
+            TxtTotalIn.Text = resultado.ToString("C");
+            TxtTotalOut.Text = resultado.ToString("C");
+            UltimoEvento = NUDReference.Name;
+            UltimoValor = NUDReference.Value;
         }
     }
 }
