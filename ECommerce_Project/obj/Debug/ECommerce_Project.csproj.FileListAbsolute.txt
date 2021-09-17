@@ -9,3 +9,14 @@ C:\Users\aline\Documents\Peh_PANDA\ETESP\Trabalhos\ECommerce_Project_DS\ECommerc
 C:\Users\aline\Documents\Peh_PANDA\ETESP\Trabalhos\ECommerce_Project_DS\ECommerce_Project\ECommerce_Project\obj\Debug\ECommerce_Project.pdb
 C:\Users\aline\Documents\Peh_PANDA\ETESP\Trabalhos\ECommerce_Project_DS\ECommerce_Project\ECommerce_Project\obj\Debug\ECommerce_Project.csprojAssemblyReference.cache
 C:\Users\aline\Documents\Peh_PANDA\ETESP\Trabalhos\ECommerce_Project_DS\ECommerce_Project\ECommerce_Project\obj\Debug\ECommerce_Project.FrmSplashScreen.resources
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.csproj.AssemblyReference.cache
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.FrmCompra.resources
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.FrmSplashScreen.resources
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.csproj.GenerateResource.cache
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.exe
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.pdb
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.Properties.Resources.resources
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\obj\Debug\ECommerce_Project.csproj.CoreCompileInputs.cache
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\bin\Debug\ECommerce_Project.exe.config
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\bin\Debug\ECommerce_Project.exe
+C:\Users\arthu\Desktop\RocketBox\ECommerce_Project\bin\Debug\ECommerce_Project.pdb
