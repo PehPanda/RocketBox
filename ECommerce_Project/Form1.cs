@@ -254,30 +254,6 @@ namespace ECommerce_Project
             TxtFonteValor7.Text = "259,90";
             TxtFonteValor8.Text = "2352,82";
         }
-        void RefatoraNUD(ref CheckBox CB, ref NumericUpDown NUM)
-        {
-            //Método de tratamento dos NumericUpDown
-            if (CB.Checked == true)
-            {
-                NUM.Value = 1;
-            }
-            else
-            {
-                NUM.Value = 0;
-            }
-        }
-        void RefatoraCB(ref CheckBox CB, ref NumericUpDown NUM)
-        {
-            //Método de tratamento dos CheckBox
-            if (NUM.Value == 0)
-            {
-                CB.Checked = false;
-            }
-            else
-            {
-                CB.Checked = true;
-            }
-        }
         private void TbcGeral_Selecting(object sender, TabControlCancelEventArgs e)
         {
             //Declara os vetores:
